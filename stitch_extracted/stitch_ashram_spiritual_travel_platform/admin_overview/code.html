@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ashram Admin - Spiritual Sanctuary</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "on-background": "#1b1c19",
+                    "inverse-primary": "#ffb77d",
+                    "on-primary-container": "#fffbff",
+                    "background": "#fbf9f4",
+                    "surface-container-low": "#f5f3ee",
+                    "inverse-on-surface": "#f2f1ec",
+                    "tertiary-fixed": "#fcddc7",
+                    "secondary-container": "#eee1cd",
+                    "surface-tint": "#904d00",
+                    "on-secondary-fixed": "#211b0f",
+                    "surface-container-high": "#eae8e3",
+                    "on-error": "#ffffff",
+                    "text-charcoal": "#2B2B2B",
+                    "on-primary-fixed": "#2f1500",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#6c6353",
+                    "outline-variant": "#dbc2b0",
+                    "primary-fixed-dim": "#ffb77d",
+                    "on-surface-variant": "#554336",
+                    "on-surface": "#1b1c19",
+                    "secondary-fixed-dim": "#d1c5b2",
+                    "tertiary": "#6e5747",
+                    "deep-earth": "#78350F",
+                    "on-tertiary-fixed-variant": "#574333",
+                    "surface-container-highest": "#e4e2de",
+                    "surface-dim": "#dbdad5",
+                    "primary": "#8d4b00",
+                    "tertiary-fixed-dim": "#dfc1ac",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#6e3900",
+                    "saffron-light": "#F59E0B",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "surface-variant": "#e4e2de",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#efeee9",
+                    "secondary": "#665d4e",
+                    "on-tertiary-fixed": "#28180b",
+                    "surface-bright": "#fbf9f4",
+                    "secondary-fixed": "#eee1cd",
+                    "outline": "#887364",
+                    "primary-fixed": "#ffdcc3",
+                    "on-tertiary-container": "#fffbff",
+                    "surface": "#fbf9f4",
+                    "tertiary-container": "#88705e",
+                    "primary-container": "#b15f00",
+                    "on-secondary-fixed-variant": "#4e4637",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-gap": "48px",
+                    "gutter": "16px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "24px"
+            },
+            "fontFamily": {
+                    "caption": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sacred-shadow {
+            box-shadow: 0 10px 30px rgba(91, 70, 54, 0.08);
+        }
+        body {
+            background-color: #fbf9f4;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-lowest shadow-md flex flex-col h-full py-6 px-4 z-50">
+<div class="mb-10 px-2 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-deep-earth">temple_hindu</span>
+</div>
+<div>
+<h1 class="font-display text-headline-md text-deep-earth leading-none">Ashram</h1>
+<p class="font-caption text-caption text-on-surface-variant">Admin Portal</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active State Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-medium hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-fixed-dim/30 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Travelers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-fixed-dim/30 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-fixed-dim/30 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-md text-label-md">Logistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-fixed-dim/30 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-fixed-dim/30 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/30 space-y-2">
+<button class="w-full mb-4 py-3 px-4 bg-primary text-on-primary rounded-xl font-label-md text-label-md hover:bg-primary-container transition-colors active:scale-95 duration-200">
+                New Registration
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="support">support</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-gutter w-full h-16 backdrop-blur-xl bg-surface/70 dark:bg-surface-dim/70 shadow-sm">
+<div class="flex items-center">
+<h2 class="font-display text-headline-md font-semibold text-primary dark:text-inverse-primary">Dashboard Overview</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 text-label-md focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search travelers..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest p-2 rounded-full transition-colors cursor-pointer active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest p-2 rounded-full transition-colors cursor-pointer active:scale-95">help_outline</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a senior administrator with a calm and welcoming expression. The lighting is soft and natural, emphasizing a serene and focused atmosphere. The background is a blurred office with warm wood tones and a touch of greenery, aligning with a premium minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOFVnZ6yrZf5joaUZlx4mP087VIb_xjE11Hovi9cw0sfB4VGfJ1mXINcznWy3GfvHw-fR-GtO0rvPyv8KIWUFzi2LNo7ul-7viywGhY9LepXv4WTd12EzFPPPIBNUI7TmK7qpypcK0uUU0ty_KQOFn1NB05Bie7OU75NmPpfFlrEEHaaXMbYxnFD2JpVynawWuf2PQ9UyFUyhSwL72ro412RuiK-7y1S0IjHhdYdl2Ch8hJR-yetgjD8BRhNJ6AeOzq4Pa87Y0C1g"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-margin-desktop">
+<!-- Metric Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-section-gap">
+<!-- Card 1 -->
+<div class="bg-surface sacred-shadow rounded-xl p-6 border-b-4 border-saffron-light">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="person_add">person_add</span>
+</div>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Total Registrations</p>
+<h3 class="font-display text-headline-lg text-on-surface mt-1">1,240</h3>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface sacred-shadow rounded-xl p-6 border-b-4 border-deep-earth">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+8.4%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Total Collection</p>
+<h3 class="font-display text-headline-lg text-on-surface mt-1">₹15.4L</h3>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface sacred-shadow rounded-xl p-6 border-b-4 border-tertiary">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="pending_actions">pending_actions</span>
+</div>
+<span class="text-xs font-semibold text-error bg-error-container/20 px-2 py-1 rounded-full">-2.1%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Pending Dues</p>
+<h3 class="font-display text-headline-lg text-on-surface mt-1">₹2.8L</h3>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface sacred-shadow rounded-xl p-6 border-b-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+</div>
+<span class="text-xs font-semibold text-primary px-2 py-1 rounded-full">Steady</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Active Yatras</p>
+<h3 class="font-display text-headline-lg text-on-surface mt-1">4</h3>
+</div>
+</section>
+<!-- Bottom Sections -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Recent Activity Feed -->
+<section class="lg:col-span-2 bg-surface sacred-shadow rounded-xl p-8">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-display text-headline-md text-on-surface">Recent Activity</h4>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="space-y-6">
+<!-- Activity Item 1 -->
+<div class="flex items-center gap-4 p-4 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young woman with a serene expression, wearing traditional spiritual attire in muted cream and saffron tones. The background is a soft-focus garden at dawn, bathed in gentle morning light. The image style is minimalist, high-quality, and deeply tranquil, reflecting the sanctuary's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpPCmmcDrPvvyj73pD34hCupRphMJHjJmEh_3FtrrEfmS6qHraOkqhUB3fek949KmiogJ8fnd5S_geiL1ObUv9EjGnh2TZPrkv5Uo2h6FMzSWSc1xA6PsSM8JDh9Pr3PeccHYcBryuwg52rBYqiDrJ-q3Mh5Hh7VEljQdcJVoAeufjPNuRY70dzMuiSGFDE5nm17SRnvFC-DLOVfx7t74p0NxEbWpoqSQFneUoYLAL1DEl7ETHw_u8IuWb1zZN8MR-wzyuXa2kUOo"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md font-medium text-on-surface">Aditi Sharma registered for <span class="text-primary font-semibold">Varanasi Soul Quest</span></p>
+<p class="text-caption text-on-surface-variant">2 hours ago • New Entry</p>
+</div>
+<div class="text-right">
+<span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium">Confirmed</span>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex items-center gap-4 p-4 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of an elderly man with a kind, wise face, characterized by fine lines and warm eyes. He is wearing a simple white cotton tunic. The lighting is low-intensity and warm, suggesting a peaceful interior space. The color palette is composed of soft whites, light browns, and natural textures, consistent with a sacred minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ_6HmZDWg5FZ-srx5HHPV1fF6DRjLVLKF2ZJ6Ksq1qnrURcYJdoXb35FtHyzYAuI_cghxao3qJ8VE87XcFzn3MenmsI-S-wWqg4HhTsgNmvQs0iqq2JlEaWcoluBEP57NSXCDmHRAFvDoAG8SBm7pB7V9D4OF_Ht3RNHWXGMeOV5dSaMlWO-RL4PdU7x5v7z1z-QsGN9SqmsDHEGzBfyU5I8vvhImf7rg8Q4Fnok74kHOm-eGU8TerTDcnFmsp8OgDHq-A2E-jkA"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md font-medium text-on-surface">Rajesh Iyer completed payment for <span class="text-primary font-semibold">Rishikesh Retreat</span></p>
+<p class="text-caption text-on-surface-variant">4 hours ago • Transaction</p>
+</div>
+<div class="text-right">
+<p class="font-semibold text-on-surface">₹45,000</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex items-center gap-4 p-4 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a woman looking thoughtfully into the distance, with a soft blur background of a temple complex at sunset. The atmosphere is contemplative and reverent. The lighting is golden and soft, with a palette of deep earth tones, warm ambers, and gentle creams, maintaining the premium wellness brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoh3JuEoUMfvzk4m5JJjV7HFD_mQfXelvvMBhnO9DxG9U6sg5roo34d8xhx58xKMcIqhTElOhtdAHmXTfM2LUhHNJrZqdbQDcveL9WvK-5TJMoeZpDf7qiAacFurlDcbEGHkpqbblWHVgVIY-aydBom5RTiJXcIygZT1wzxj03SD-YmIs17ii27uT6XTKgXNaIDi79rPCtmLVSp_RyasH0t1N2pI_1MfuCavxhEHBDJfgWlNZQNniE-qmgbDHpjIRfAZDHmdNJHkQ"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md font-medium text-on-surface">Meera Kapur requested cancellation for <span class="text-primary font-semibold">Haridwar Kumbh</span></p>
+<p class="text-caption text-on-surface-variant">6 hours ago • Support</p>
+</div>
+<div class="text-right">
+<span class="px-3 py-1 bg-error-container/20 text-error rounded-full text-xs font-medium">Pending</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Trip Distribution (Donut Chart) -->
+<section class="bg-surface sacred-shadow rounded-xl p-8 flex flex-col items-center">
+<h4 class="font-display text-headline-md text-on-surface self-start mb-8">Trip Distribution</h4>
+<div class="relative w-48 h-48 mb-8">
+<!-- Custom SVG Donut -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#eee1cd" stroke-width="3"></circle>
+<circle class="transition-all duration-1000" cx="18" cy="18" fill="transparent" r="15.915" stroke="#8d4b00" stroke-dasharray="40 60" stroke-dashoffset="0" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#F59E0B" stroke-dasharray="25 75" stroke-dashoffset="-40" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#78350F" stroke-dasharray="20 80" stroke-dashoffset="-65" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#6e5747" stroke-dasharray="15 85" stroke-dashoffset="-85" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-lg font-display text-deep-earth">100%</span>
+<span class="text-caption text-on-surface-variant">Booked</span>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-label-md text-on-surface-variant">Rishikesh</span>
+</div>
+<span class="text-label-md font-semibold">40%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-saffron-light"></div>
+<span class="text-label-md text-on-surface-variant">Varanasi</span>
+</div>
+<span class="text-label-md font-semibold">25%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-deep-earth"></div>
+<span class="text-label-md text-on-surface-variant">Haridwar</span>
+</div>
+<span class="text-label-md font-semibold">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span class="text-label-md text-on-surface-variant">Others</span>
+</div>
+<span class="text-label-md font-semibold">15%</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<script>
+        // Simple interactivity for navigation and metric cards
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // If we were doing real routing, we'd prevent default
+                // e.preventDefault();
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                    l.classList.add('text-on-surface-variant');
+                });
+                this.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                this.classList.remove('text-on-surface-variant');
+            });
+        });
+
+        // Small pulse effect on notification
+        const notificationBtn = document.querySelector('header .material-symbols-outlined:first-of-type');
+        if(notificationBtn) {
+            setInterval(() => {
+                notificationBtn.classList.add('scale-110');
+                setTimeout(() => notificationBtn.classList.remove('scale-110'), 200);
+            }, 5000);
+        }
+    </script>
+</body></html>
