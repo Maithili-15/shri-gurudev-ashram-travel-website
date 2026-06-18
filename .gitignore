@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Production / build
+dist/
+**/dist/
+build/
+**/build/
+
+# Environment variables / Secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+**/logs
+**/*.log
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
