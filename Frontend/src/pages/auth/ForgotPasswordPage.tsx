@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Loader2, Flower2, CheckCircle2 } from 'lucide-react'
+import { Loader2, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { usePageTitle } from '@/hooks/usePageTitle'
 
@@ -23,53 +23,58 @@ export function ForgotPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0a0908] px-4 py-16">
+    <div className="min-h-screen flex items-center justify-center bg-surface px-4 py-16 font-body-md text-on-surface">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 items-center justify-center mb-4">
-            <Flower2 className="h-7 w-7 text-white" />
-          </div>
-          <h1 className="font-display text-2xl font-bold text-gradient-saffron">Reset Password</h1>
-          <p className="text-sm text-[#f2f0eb]/50 mt-1">Enter your email to receive a reset link</p>
+        <div className="text-center mb-10">
+          <img
+            src="/assets/Ashram vector logo_2022_white-01.png"
+            alt="Shri Gurudev Ashram Logo"
+            className="w-14 h-14 object-contain mx-auto mb-4 drop-shadow-sm"
+          />
+          <h1 className="font-display-lg text-3xl text-primary mb-2">Reset Password</h1>
+          <p className="text-on-surface-variant">Enter your email to receive a reset link</p>
         </div>
-        <div className="p-8 rounded-3xl bg-[#121110] border border-amber-900/20">
+
+        <div className="p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm">
           {sent ? (
             <div className="text-center space-y-4">
-              <CheckCircle2 className="h-12 w-12 text-green-400 mx-auto" />
-              <p className="text-[#f2f0eb] font-medium">Check your email</p>
-              <p className="text-sm text-[#f2f0eb]/50">
-                We've sent a reset link to <strong className="text-[#f2f0eb]/80">{email}</strong>. Valid for 1 hour.
+              <CheckCircle2 className="h-12 w-12 text-green-600 mx-auto" />
+              <p className="text-on-surface font-bold text-lg">Check your email</p>
+              <p className="text-sm text-on-surface-variant leading-relaxed">
+                We've sent a reset link to <strong className="text-primary">{email}</strong>. Valid for 1 hour.
               </p>
-              <Link to="/login" className="inline-block text-sm text-amber-400 hover:text-amber-300">
+              <Link to="/login" className="inline-block mt-4 text-primary font-bold hover:text-secondary underline decoration-2 underline-offset-4 transition-colors">
                 Back to Sign In
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Email Address</label>
+                <label className="block text-sm font-medium text-on-surface-variant mb-2">Email Address</label>
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="w-full px-4 py-3 rounded-xl bg-[#0a0908] border border-amber-900/30 text-[#f2f0eb] placeholder-[#f2f0eb]/20 focus:outline-none focus:border-amber-500/50 transition-colors"
+                  className="w-full px-5 py-4 rounded-xl bg-surface border border-outline-variant/50 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 />
               </div>
               {error && (
-                <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">{error}</div>
+                <div className="px-5 py-4 rounded-xl bg-error-container text-on-error-container text-sm font-medium">
+                  {error}
+                </div>
               )}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold disabled:opacity-60"
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary/90 transition-all disabled:opacity-60 shadow-md"
               >
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Send Reset Link'}
               </button>
-              <p className="text-center text-sm text-[#f2f0eb]/40">
+              <p className="text-center text-on-surface-variant mt-6">
                 Remember it?{' '}
-                <Link to="/login" className="text-amber-400 hover:text-amber-300 font-medium">Sign In</Link>
+                <Link to="/login" className="text-primary hover:text-secondary font-bold transition-colors">Sign In</Link>
               </p>
             </form>
           )}

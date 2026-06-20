@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
-import { Flower2, Menu, X, LogIn, UserCircle } from 'lucide-react'
+import { Menu, X, LogIn, UserCircle } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 
 const navLinks = [
@@ -35,10 +35,12 @@ export function PublicHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <Flower2 className="h-5 w-5 text-white" />
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/assets/Ashram vector logo_2022_white-01.png"
+              alt="Shri Gurudev Ashram Logo"
+              className="w-14 h-14 md:w-[64px] md:h-[64px] object-contain shrink-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-transform group-hover:scale-105 duration-300"
+            />
             <div className="hidden sm:block">
               <span className="font-display text-base font-bold text-gradient-saffron leading-tight">
                 Shri Gurudev Ashram

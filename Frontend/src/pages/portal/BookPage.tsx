@@ -97,7 +97,7 @@ export function BookPage() {
   const inputClass = (field: string) =>
     `w-full px-4 py-3 rounded-xl bg-[#0a0908] border ${errors[field] ? 'border-red-500/50' : 'border-amber-900/30'} text-[#f2f0eb] focus:outline-none focus:border-amber-500/50 transition-colors`
 
-  const ErrorMsg = ({ field }: { field: string }) =>
+  const renderError = (field: string) =>
     errors[field] ? <p className="text-red-400 text-xs mt-1">{errors[field]}</p> : null
 
   return (
@@ -126,28 +126,28 @@ export function BookPage() {
               <div>
                 <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Full Name</label>
                 <input type="text" value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} className={inputClass('fullName')} />
-                <ErrorMsg field="fullName" />
+                {renderError('fullName')}
               </div>
               <div>
                 <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Date of Birth</label>
                 <input type="date" value={form.dob} onChange={(e) => setForm({ ...form, dob: e.target.value })} className={inputClass('dob')} />
-                <ErrorMsg field="dob" />
+                {renderError('dob')}
               </div>
               <div>
                 <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Phone Number</label>
                 <input type="tel" maxLength={10} value={form.phoneNumber} onChange={(e) => setForm({ ...form, phoneNumber: e.target.value.replace(/\D/g, '') })} placeholder="10-digit" className={inputClass('phoneNumber')} />
-                <ErrorMsg field="phoneNumber" />
+                {renderError('phoneNumber')}
               </div>
               <div>
                 <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">WhatsApp Number</label>
                 <input type="tel" maxLength={10} value={form.whatsappNumber} onChange={(e) => setForm({ ...form, whatsappNumber: e.target.value.replace(/\D/g, '') })} placeholder="10-digit" className={inputClass('whatsappNumber')} />
-                <ErrorMsg field="whatsappNumber" />
+                {renderError('whatsappNumber')}
               </div>
             </div>
             <div>
               <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Address</label>
               <textarea rows={3} value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} className={`${inputClass('address')} resize-none`} placeholder="Full address" />
-              <ErrorMsg field="address" />
+              {renderError('address')}
             </div>
           </div>
 
@@ -184,7 +184,7 @@ export function BookPage() {
                     </button>
                   ))}
                 </div>
-                <ErrorMsg field="busType" />
+                {renderError('busType')}
               </div>
             )}
             <div>

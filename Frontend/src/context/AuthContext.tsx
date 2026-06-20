@@ -7,13 +7,15 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import { useNavigate } from 'react-router-dom'
+// useNavigate unused
 import { supabase } from '@/lib/supabase'
 import type { UserRow } from '@/types/database.types'
 
 interface AuthUser {
   id: string
   email: string
+  name?: string
+  avatar?: string
 }
 
 interface AuthContextValue {
@@ -32,6 +34,7 @@ interface AuthContextValue {
   refreshProfile: () => Promise<void>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext<AuthContextValue | null>(null)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -130,6 +133,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   const ctx = useContext(AuthContext)
   if (!ctx) throw new Error('useAuth must be used within AuthProvider')

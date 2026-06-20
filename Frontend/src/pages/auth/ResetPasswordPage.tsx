@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Eye, EyeOff, Loader2, Flower2 } from 'lucide-react'
+import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import { usePageTitle } from '@/hooks/usePageTitle'
 import { supabase } from '@/lib/supabase'
 import { toast } from 'sonner'
@@ -37,19 +37,22 @@ export function ResetPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0a0908] px-4 py-16">
+    <div className="min-h-screen flex items-center justify-center bg-surface px-4 py-16 font-body-md text-on-surface">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 items-center justify-center mb-4">
-            <Flower2 className="h-7 w-7 text-white" />
-          </div>
-          <h1 className="font-display text-2xl font-bold text-gradient-saffron">New Password</h1>
-          <p className="text-sm text-[#f2f0eb]/50 mt-1">Choose a strong new password</p>
+        <div className="text-center mb-10">
+          <img
+            src="/assets/Ashram vector logo_2022_white-01.png"
+            alt="Shri Gurudev Ashram Logo"
+            className="w-14 h-14 object-contain mx-auto mb-4 drop-shadow-sm"
+          />
+          <h1 className="font-display-lg text-3xl text-primary mb-2">New Password</h1>
+          <p className="text-on-surface-variant">Choose a strong new password</p>
         </div>
-        <div className="p-8 rounded-3xl bg-[#121110] border border-amber-900/20">
-          <form onSubmit={handleSubmit} className="space-y-5">
+        
+        <div className="p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">New Password</label>
+              <label className="block text-sm font-medium text-on-surface-variant mb-2">New Password</label>
               <div className="relative">
                 <input
                   type={showPw ? 'text' : 'password'}
@@ -57,40 +60,46 @@ export function ResetPasswordPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Minimum 6 characters"
-                  className="w-full px-4 py-3 pr-11 rounded-xl bg-[#0a0908] border border-amber-900/30 text-[#f2f0eb] placeholder-[#f2f0eb]/20 focus:outline-none focus:border-amber-500/50 transition-colors"
+                  className="w-full px-5 py-4 pr-12 rounded-xl bg-surface border border-outline-variant/50 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPw((v) => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#f2f0eb]/30 hover:text-[#f2f0eb]/60"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors"
                 >
-                  {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showPw ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
             </div>
+            
             <div>
-              <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Confirm New Password</label>
+              <label className="block text-sm font-medium text-on-surface-variant mb-2">Confirm New Password</label>
               <input
                 type="password"
                 required
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 placeholder="Repeat new password"
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0908] border border-amber-900/30 text-[#f2f0eb] placeholder-[#f2f0eb]/20 focus:outline-none focus:border-amber-500/50 transition-colors"
+                className="w-full px-5 py-4 rounded-xl bg-surface border border-outline-variant/50 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
+            
             {error && (
-              <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">{error}</div>
+              <div className="px-5 py-4 rounded-xl bg-error-container text-on-error-container text-sm font-medium">
+                {error}
+              </div>
             )}
+            
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold disabled:opacity-60"
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary/90 transition-all disabled:opacity-60 shadow-md"
             >
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Update Password'}
             </button>
-            <p className="text-center text-sm text-[#f2f0eb]/40">
-              <Link to="/login" className="text-amber-400 hover:text-amber-300">Back to Sign In</Link>
+            
+            <p className="text-center text-on-surface-variant mt-6">
+              <Link to="/login" className="text-primary hover:text-secondary font-bold transition-colors">Back to Sign In</Link>
             </p>
           </form>
         </div>

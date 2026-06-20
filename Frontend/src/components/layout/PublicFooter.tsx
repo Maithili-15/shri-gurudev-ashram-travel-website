@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Flower2, Phone, Mail, MapPin, Heart } from 'lucide-react'
+import { Phone, Mail, MapPin, Heart } from 'lucide-react'
 
 export function PublicFooter() {
   return (
@@ -8,10 +8,12 @@ export function PublicFooter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* About */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center">
-                <Flower2 className="h-4 w-4 text-white" />
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/assets/Ashram vector logo_2022_white-01.png"
+                alt="Shri Gurudev Ashram Logo"
+                className="w-10 h-10 object-contain shrink-0 drop-shadow-sm"
+              />
               <span className="font-display font-bold text-gradient-saffron">
                 Shri Gurudev Ashram
               </span>

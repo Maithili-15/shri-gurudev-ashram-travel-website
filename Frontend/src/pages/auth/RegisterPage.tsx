@@ -21,7 +21,7 @@ export function RegisterPage() {
     e.preventDefault()
     setError('')
     setLoading(true)
-    const result = await signUp(email, password, name)
+    const result = await signUp(email, password, name, '')
     setLoading(false)
     if (result.error) setError(result.error)
     else navigate('/dashboard', { replace: true })

@@ -1,23 +1,23 @@
-import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import { PublicHeader } from './PublicHeader'
-import { PublicFooter } from './PublicFooter'
+import React, { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
-export function PublicLayout() {
-  const { pathname } = useLocation()
+export const PublicLayout: React.FC = () => {
+  const { pathname } = useLocation();
 
   // Scroll to top on route change
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [pathname])
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0908] text-[#f2f0eb]">
-      <PublicHeader />
+    <div className="min-h-screen flex flex-col bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+      <Navbar />
       <main className="flex-1">
         <Outlet />
       </main>
-      <PublicFooter />
+      <Footer />
     </div>
-  )
-}
+  );
+};
