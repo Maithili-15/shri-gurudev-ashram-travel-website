@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Eye, EyeOff, Loader2, Flower2 } from 'lucide-react'
+import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { usePageTitle } from '@/hooks/usePageTitle'
 import { toast } from 'sonner'
+import { aboutTempleGate } from '@/assets/images'
 
 export function SignupPage() {
   usePageTitle('Create Account')
@@ -54,41 +55,40 @@ export function SignupPage() {
     setForm({ ...form, [field]: e.target.value })
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0a0908] px-4 py-16">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 items-center justify-center mb-4 shadow-[0_0_30px_rgba(245,158,11,0.4)]">
-            <Flower2 className="h-7 w-7 text-white" />
+    <div className="min-h-[100dvh] flex flex-row-reverse font-body-md bg-surface text-on-surface">
+      {/* Right side - Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 md:p-16 mt-16 lg:mt-0">
+        <div className="w-full max-w-md animate-fade-in-up">
+          <div className="mb-10 text-center lg:text-left">
+            <span className="font-label-caps text-label-caps text-secondary mb-3 block tracking-widest">BECOME A MEMBER</span>
+            <h1 className="font-display-lg text-4xl text-primary mb-3">Join Our Community</h1>
+            <p className="text-on-surface-variant text-lg">Register to secure your spot in upcoming Yatras.</p>
           </div>
-          <h1 className="font-display text-2xl font-bold text-gradient-saffron">Join Our Community</h1>
-          <p className="text-sm text-[#f2f0eb]/50 mt-1">Create your devotee account</p>
-        </div>
 
-        <div className="p-8 rounded-3xl bg-[#121110] border border-amber-900/20 sacred-shadow">
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             {[
               { id: 'fullName', label: 'Full Name', type: 'text', placeholder: 'Your full name' },
               { id: 'phone', label: 'Phone Number', type: 'tel', placeholder: '10-digit mobile number' },
               { id: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
             ].map((field) => (
               <div key={field.id}>
-                <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">{field.label}</label>
+                <label className="block text-sm font-medium text-on-surface-variant mb-2">{field.label}</label>
                 <input
                   id={`signup-${field.id}`}
                   type={field.type}
                   value={form[field.id as keyof typeof form]}
                   onChange={f(field.id)}
                   placeholder={field.placeholder}
-                  className="w-full px-4 py-3 rounded-xl bg-[#0a0908] border border-amber-900/30 text-[#f2f0eb] placeholder-[#f2f0eb]/20 focus:outline-none focus:border-amber-500/50 transition-colors"
+                  className="w-full px-5 py-4 rounded-xl bg-surface-container-lowest border border-outline-variant/50 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 />
                 {errors[field.id] && (
-                  <p className="text-red-400 text-xs mt-1">{errors[field.id]}</p>
+                  <p className="text-error font-medium text-xs mt-1.5">{errors[field.id]}</p>
                 )}
               </div>
             ))}
 
             <div>
-              <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-on-surface-variant mb-2">Password</label>
               <div className="relative">
                 <input
                   id="signup-password"
@@ -96,36 +96,36 @@ export function SignupPage() {
                   value={form.password}
                   onChange={f('password')}
                   placeholder="Minimum 6 characters"
-                  className="w-full px-4 py-3 pr-11 rounded-xl bg-[#0a0908] border border-amber-900/30 text-[#f2f0eb] placeholder-[#f2f0eb]/20 focus:outline-none focus:border-amber-500/50 transition-colors"
+                  className="w-full px-5 py-4 pr-12 rounded-xl bg-surface-container-lowest border border-outline-variant/50 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPw((v) => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#f2f0eb]/30 hover:text-[#f2f0eb]/60"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors"
                 >
-                  {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showPw ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
-              {errors.password && <p className="text-red-400 text-xs mt-1">{errors.password}</p>}
+              {errors.password && <p className="text-error font-medium text-xs mt-1.5">{errors.password}</p>}
             </div>
 
             <div>
-              <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Confirm Password</label>
+              <label className="block text-sm font-medium text-on-surface-variant mb-2">Confirm Password</label>
               <input
                 id="signup-confirm-password"
                 type="password"
                 value={form.confirmPassword}
                 onChange={f('confirmPassword')}
                 placeholder="Repeat your password"
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0908] border border-amber-900/30 text-[#f2f0eb] placeholder-[#f2f0eb]/20 focus:outline-none focus:border-amber-500/50 transition-colors"
+                className="w-full px-5 py-4 rounded-xl bg-surface-container-lowest border border-outline-variant/50 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
               {errors.confirmPassword && (
-                <p className="text-red-400 text-xs mt-1">{errors.confirmPassword}</p>
+                <p className="text-error font-medium text-xs mt-1.5">{errors.confirmPassword}</p>
               )}
             </div>
 
             {errors.form && (
-              <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+              <div className="px-5 py-4 rounded-xl bg-error-container text-on-error-container text-sm font-medium">
                 {errors.form}
               </div>
             )}
@@ -134,18 +134,35 @@ export function SignupPage() {
               type="submit"
               id="signup-submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-60 mt-2"
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary/90 transition-all disabled:opacity-60 shadow-md hover:-translate-y-0.5 mt-6"
             >
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Create Account'}
             </button>
           </form>
 
-          <p className="text-center text-sm text-[#f2f0eb]/40 mt-6">
+          <p className="text-center lg:text-left text-on-surface-variant mt-10">
             Already have an account?{' '}
-            <Link to="/login" className="text-amber-400 hover:text-amber-300 font-medium transition-colors">
+            <Link to="/login" className="text-primary hover:text-secondary font-bold transition-colors underline decoration-2 underline-offset-4">
               Sign In
             </Link>
           </p>
+        </div>
+      </div>
+
+      {/* Left side - Image */}
+      <div className="hidden lg:block lg:w-1/2 relative bg-surface-container overflow-hidden">
+        <img 
+          src={aboutTempleGate} 
+          alt="Temple Gate" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div className="absolute bottom-16 left-16 right-16 text-white text-center">
+          <blockquote className="font-headline-md text-3xl italic leading-relaxed mb-6 text-white drop-shadow-md">
+            "Enter these gates not as a tourist, but as a seeker. Every stone here vibrates with the chants of a million devotees."
+          </blockquote>
+          <cite className="font-label-caps tracking-widest block drop-shadow-md opacity-80">— GURU SHANTI DEVA</cite>
         </div>
       </div>
     </div>

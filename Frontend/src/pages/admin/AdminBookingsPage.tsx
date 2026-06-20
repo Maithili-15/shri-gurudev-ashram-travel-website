@@ -56,7 +56,7 @@ export function AdminBookingsPage() {
       headers.join(','),
       ...rows.map((b) =>
         headers
-          .map((h) => JSON.stringify((b as Record<string, unknown>)[h] ?? ''))
+          .map((h) => JSON.stringify((b as unknown as Record<string, unknown>)[h] ?? ''))
           .join(','),
       ),
     ].join('\n')

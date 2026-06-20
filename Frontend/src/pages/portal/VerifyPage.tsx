@@ -35,14 +35,14 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
 
 function FileUploadField({
   label,
-  preview,
+  // preview unused
   onFileSelect,
   onUpload,
   uploaded,
   loading,
 }: {
   label: string
-  preview: string | null
+  // preview unused
   onFileSelect: (file: File) => void
   onUpload: () => void
   uploaded: boolean
@@ -226,7 +226,6 @@ export function VerifyPage() {
           <div className="mt-4">
             <FileUploadField
               label="Upload a clear photo of your Aadhaar card (front side)"
-              preview={null}
               onFileSelect={setAadhaarFile}
               onUpload={handleUploadAadhaar}
               uploaded={Boolean(aadhaarImagePath)}
@@ -247,7 +246,6 @@ export function VerifyPage() {
           <div className="mt-4">
             <FileUploadField
               label="Take a clear selfie (face clearly visible, no sunglasses)"
-              preview={null}
               onFileSelect={setSelfieFile}
               onUpload={handleUploadSelfie}
               uploaded={Boolean(selfieImagePath)}

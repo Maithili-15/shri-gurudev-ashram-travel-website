@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, AlertCircle, CheckCircle, XCircle, Loader2, IndianRupee } from 'lucide-react'
+import { ArrowLeft, AlertCircle, CheckCircle, XCircle, IndianRupee } from 'lucide-react'
 import { useBooking } from '@/hooks/useBookings'
 import { usePayment } from '@/hooks/usePayment'
 import { usePageTitle } from '@/hooks/usePageTitle'

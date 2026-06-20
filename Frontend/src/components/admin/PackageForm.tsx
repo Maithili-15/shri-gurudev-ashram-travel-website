@@ -60,7 +60,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
   const inputClass = (field: string) =>
     `w-full px-4 py-3 rounded-xl bg-[#0a0908] border ${errors[field] ? 'border-red-500/50' : 'border-amber-900/30'} text-[#f2f0eb] focus:outline-none focus:border-amber-500/50 transition-colors`
 
-  const ErrMsg = ({ f }: { f: string }) =>
+  const renderError = (f: string) =>
     errors[f] ? <p className="text-red-400 text-xs mt-1">{errors[f]}</p> : null
 
   return (
@@ -74,7 +74,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
           placeholder="e.g. Char Dham Yatra 2025"
           className={inputClass('title')}
         />
-        <ErrMsg f="title" />
+        {renderError('title')}
       </div>
 
       <div>
@@ -87,7 +87,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
           className={`${inputClass('description')} resize-none`}
         />
         <div className="flex justify-between mt-1">
-          <ErrMsg f="description" />
+          {renderError('description')}
           <span className="text-xs text-[#f2f0eb]/30 ml-auto">{form.description.length} chars</span>
         </div>
       </div>
@@ -103,7 +103,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
             placeholder="15000"
             className={inputClass('price')}
           />
-          <ErrMsg f="price" />
+          {renderError('price')}
         </div>
         <div>
           <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Duration *</label>
@@ -114,7 +114,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
             placeholder="7 Days / 6 Nights"
             className={inputClass('duration')}
           />
-          <ErrMsg f="duration" />
+          {renderError('duration')}
         </div>
       </div>
 
@@ -128,7 +128,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
             onChange={(e) => setForm({ ...form, total_seats: Number(e.target.value) })}
             className={inputClass('total_seats')}
           />
-          <ErrMsg f="total_seats" />
+          {renderError('total_seats')}
         </div>
         <div>
           <label className="block text-sm text-[#f2f0eb]/60 mb-1.5">Remaining Seats *</label>
@@ -140,7 +140,7 @@ export function PackageForm({ initialData, onSubmit, submitLabel }: PackageFormP
             onChange={(e) => setForm({ ...form, remaining_seats: Number(e.target.value) })}
             className={inputClass('remaining_seats')}
           />
-          <ErrMsg f="remaining_seats" />
+          {renderError('remaining_seats')}
         </div>
       </div>
 

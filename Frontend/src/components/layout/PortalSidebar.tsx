@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import { Home, BookOpen, Map, User, ShieldCheck, LogOut, AlertTriangle, Flower2 } from 'lucide-react'
+import { Home, BookOpen, Map, User, ShieldCheck, LogOut, AlertTriangle } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 
 const navItems = [
@@ -33,10 +33,12 @@ export function PortalSidebar() {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="px-4 py-5 border-b border-amber-900/20">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center flex-shrink-0">
-            <Flower2 className="h-4 w-4 text-white" />
-          </div>
+        <div className="flex items-center gap-3">
+          <img
+            src="/assets/Ashram vector logo_2022_white-01.png"
+            alt="Shri Gurudev Ashram Logo"
+            className="w-8 h-8 object-contain shrink-0 drop-shadow-sm"
+          />
           <span className="font-display text-sm font-bold text-gradient-saffron truncate">
             Shri Gurudev Ashram
           </span>

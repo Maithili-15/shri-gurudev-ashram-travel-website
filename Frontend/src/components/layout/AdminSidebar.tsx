@@ -6,7 +6,6 @@ import {
   BookOpen,
   Map,
   LogOut,
-  Flower2,
   Bell,
 } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
@@ -45,10 +44,12 @@ export function AdminSidebar() {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="px-4 py-5 border-b border-amber-900/20">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center flex-shrink-0">
-            <Flower2 className="h-4 w-4 text-white" />
-          </div>
+        <div className="flex items-center gap-3">
+          <img
+            src="/assets/Ashram vector logo_2022_white-01.png"
+            alt="Shri Gurudev Ashram Logo"
+            className="w-8 h-8 object-contain shrink-0 drop-shadow-sm"
+          />
           <div className="min-w-0">
             <p className="font-display text-xs font-bold text-gradient-saffron truncate">
               Shri Gurudev Ashram
