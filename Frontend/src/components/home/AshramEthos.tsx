@@ -7,7 +7,7 @@ export const AshramEthos: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
         <div className="order-2 md:order-1 space-y-8">
           <div className="space-y-4">
-            <span className="font-label-caps text-label-caps text-tertiary">Founder & Spiritual Guide</span>
+            <span className="section-eyebrow">Founder & Spiritual Guide</span>
             <div className="w-12 h-1 bg-primary"></div>
           </div>
           

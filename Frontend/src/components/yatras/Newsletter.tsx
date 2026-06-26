@@ -39,13 +39,13 @@ export const Newsletter: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
             <Link 
               to="/yatras"
-              className="w-full sm:w-auto bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hover:bg-primary/95 hover:-translate-y-0.5 shadow-md hover:shadow-lg transition-all duration-300 tracking-wider text-sm select-none text-center"
+              className="btn-primary w-full sm:w-auto justify-center"
             >
               Explore Upcoming Yatras
             </Link>
             <Link 
               to="/contact"
-              className="w-full sm:w-auto border border-outline text-on-surface-variant hover:text-primary hover:border-primary px-8 py-4 rounded-xl font-bold hover:-translate-y-0.5 transition-all duration-300 tracking-wider text-sm select-none text-center"
+              className="btn-outline w-full sm:w-auto justify-center"
             >
               Contact the Ashram
             </Link>

@@ -8,11 +8,14 @@ export function PublicFooter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* About */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-4 mb-6">
               <img
                 src="/assets/Ashram vector logo_2022_white-01.png"
                 alt="Shri Gurudev Ashram Logo"
-                className="w-10 h-10 object-contain shrink-0 drop-shadow-sm"
+                width={105}
+                height={105}
+                loading="lazy"
+                className="w-24 h-auto md:w-[105px] object-contain shrink-0 drop-shadow-md"
               />
               <span className="font-display font-bold text-gradient-saffron">
                 Shri Gurudev Ashram
@@ -41,7 +44,7 @@ export function PublicFooter() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-[#f2f0eb]/50 hover:text-amber-400 transition-colors"
+                    className="text-sm text-[#f2f0eb]/50 hover:text-amber-400 transition-colors focus-ring rounded"
                   >
                     {link.label}
                   </Link>
@@ -61,16 +64,16 @@ export function PublicFooter() {
                 <span>Shri Gurudev Ashram, Nashik, Maharashtra 422003</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-[#f2f0eb]/50">
-                <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-amber-400 transition-colors">
+                <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" aria-hidden="true" />
+                <a href="tel:+919876543210" className="hover:text-amber-400 transition-colors focus-ring rounded">
                   +91 98765 43210
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-[#f2f0eb]/50">
-                <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" aria-hidden="true" />
                 <a
                   href="mailto:info@shrigurudevashram.in"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-amber-400 transition-colors focus-ring rounded"
                 >
                   info@shrigurudevashram.in
                 </a>
