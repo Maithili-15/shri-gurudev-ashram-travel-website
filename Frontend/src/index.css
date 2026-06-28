@@ -180,4 +180,112 @@
   .animate-fade-in {
     animation: fade-in 1.5s ease-out forwards;
   }
+
+  /* ── Primary Button ────────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    font-family: var(--font-label-caps);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(117,91,0,0.18), 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 88%, #000 12%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(117,91,0,0.22), 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .btn-primary:active { transform: scale(0.97) translateY(0); box-shadow: 0 2px 6px rgba(117,91,0,0.15); }
+  .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-primary); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  /* ── Outline Button ────────────────────────────────── */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9375rem 2rem;
+    border-radius: 0.75rem;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    font-family: var(--font-label-caps);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(117,91,0,0.18);
+  }
+  .btn-outline:active { transform: scale(0.97) translateY(0); }
+  .btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-primary); }
+
+  /* ── Sacred Card ───────────────────────────────────── */
+  .card-sacred {
+    background-color: var(--color-surface);
+    border-radius: 1rem;
+    border: 1px solid rgba(209,197,173,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .card-sacred:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(117,91,0,0.09), 0 8px 16px rgba(0,0,0,0.06);
+  }
+
+  /* ── Section Typography Tokens ─────────────────────── */
+  .section-eyebrow {
+    display: block;
+    font-family: var(--font-label-caps);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 0.625rem;
+  }
+  .section-heading {
+    font-family: var(--font-headline-md);
+    font-size: var(--text-headline-md);
+    line-height: var(--text-headline-md--line-height);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  .section-desc {
+    font-family: var(--font-body-lg);
+    font-size: var(--text-body-lg);
+    line-height: var(--text-body-lg--line-height);
+    font-weight: 300;
+    color: var(--color-on-surface-variant);
+  }
+
+  /* ── Focus Ring ────────────────────────────────────── */
+  .focus-ring:focus-visible {
+    outline: none;
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-primary);
+  }
 }

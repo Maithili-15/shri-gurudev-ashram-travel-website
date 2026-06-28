@@ -43,7 +43,7 @@ const AshramLogo = () => (
   <img
     src="/assets/Ashram vector logo_2022_white-01.png"
     alt="Shri Gurudev Ashram Logo"
-    className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain shrink-0 drop-shadow-sm"
+    className="w-24 h-24 md:w-[105px] md:h-[105px] object-contain shrink-0 drop-shadow-md"
   />
 );
 

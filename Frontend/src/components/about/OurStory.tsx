@@ -4,7 +4,7 @@ import { Heart, Sparkles, BookOpen, Compass } from 'lucide-react';
 
 export const OurStory: React.FC = () => {
   return (
-    <section className="pt-6 pb-20 md:pt-10 md:pb-28 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface overflow-hidden">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface overflow-hidden">
       
       {/* Section 1: Gurudev Ji */}
       <motion.div 

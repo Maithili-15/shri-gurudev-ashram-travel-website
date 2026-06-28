@@ -2,13 +2,15 @@ import React from 'react';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 px-margin-mobile text-center relative overflow-hidden bg-surface-container-low">
+    <section className="py-section-gap px-margin-mobile text-center relative overflow-hidden bg-surface-container-low">
       {/* Background Image with warm white overlay */}
       <div className="absolute inset-0 z-0">
         <img
           className="w-full h-full object-cover opacity-15"
           alt=""
+          aria-hidden="true"
           src="/assets/temple_sunrise_bg.png"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-surface/70 mix-blend-color-burn"></div>
       </div>

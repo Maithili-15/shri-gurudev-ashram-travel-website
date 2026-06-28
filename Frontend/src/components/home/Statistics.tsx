@@ -1,27 +1,38 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const stats = [
+  { value: '20+', label: 'Years of Seva' },
+  { value: '5000+', label: 'Devotees' },
+  { value: '100+', label: 'Spiritual Camps' },
+  { value: '50+', label: 'Sacred Yatras' },
+];
 
 export const Statistics: React.FC = () => {
   return (
-    <section className="bg-surface py-12 border-b border-outline-variant/30">
+    <section className="bg-surface pt-12 pb-20 md:pt-16 md:pb-24 border-b border-outline-variant/30">
       <div className="max-w-container-max mx-auto px-margin-desktop">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-outline-variant/30">
-          <div className="space-y-2">
-            <p className="font-display-lg text-4xl text-primary">20+</p>
-            <p className="font-label-caps text-[11px] tracking-widest text-secondary uppercase">Years of Seva</p>
-          </div>
-          <div className="space-y-2">
-            <p className="font-display-lg text-4xl text-primary">5000+</p>
-            <p className="font-label-caps text-[11px] tracking-widest text-secondary uppercase">Devotees</p>
-          </div>
-          <div className="space-y-2">
-            <p className="font-display-lg text-4xl text-primary">100+</p>
-            <p className="font-label-caps text-[11px] tracking-widest text-secondary uppercase">Spiritual Camps</p>
-          </div>
-          <div className="space-y-2">
-            <p className="font-display-lg text-4xl text-primary">50+</p>
-            <p className="font-label-caps text-[11px] tracking-widest text-secondary uppercase">Sacred Yatras</p>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-outline-variant/30"
+        >
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.08, ease: 'easeOut' }}
+              viewport={{ once: true }}
+              className="space-y-2"
+            >
+              <p className="font-display-lg text-4xl text-primary">{stat.value}</p>
+              <p className="section-eyebrow text-secondary">{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

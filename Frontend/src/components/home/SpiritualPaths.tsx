@@ -15,9 +15,10 @@ export const SpiritualPaths: React.FC = () => {
   return (
     <section className="bg-surface-container-low py-section-gap px-margin-desktop">
       <div className="max-w-container-max mx-auto space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <h2 className="font-headline-md text-headline-md text-on-surface">Upcoming Yatras</h2>
-          <p className="text-on-surface-variant italic">Embark on a pilgrimage that transcends the physical plane.</p>
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <span className="section-eyebrow">Divine Pilgrimages</span>
+          <h2 className="section-heading">Upcoming Yatras</h2>
+          <p className="section-desc italic">Embark on a pilgrimage that transcends the physical plane.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
